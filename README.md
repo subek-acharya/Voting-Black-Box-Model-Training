@@ -39,6 +39,8 @@ dedicated training folder under `models/`.
 | Spiking ResNet20 | Spiking Neural Network | `models/spiking-neural-network/` | [Spiking-Neural-Network](https://github.com/subek-acharya/Spiking-Neural-Network) |
 | ProtoPNet-VGG16 | Explainable AI | `models/explainable-ai/` | [Explainable-AI](https://github.com/subek-acharya/Explainable-AI) |
 | ProtoPNet-ResNet20 | Explainable AI | `models/explainable-ai/` | [Explainable-AI](https://github.com/subek-acharya/Explainable-AI) |
+| CaiT | Vision Transformer | `models/cait-svm/` | in-repo (`model_architecture/`) |
+| Multi-output SVM | SVM | `models/cait-svm/` | in-repo (`model_architecture/`) |
 
 These join the broader set of eight classifiers attacked in the main framework: ResNet20,
 VGG16, CaiT, Multi-output SVM, Spiking ResNet20, Spiking VGG16, ProtoPNet-ResNet20, and
@@ -60,8 +62,13 @@ Voting-Black-Box-Model-Training/
     │   └── README.md
     ├── spiking-neural-network/     # Spiking VGG16 / ResNet20 training (SpikingJelly)
     │   └── README.md
-    └── explainable-ai/             # ProtoPNet VGG16 / ResNet20 training
-        └── README.md
+    ├── explainable-ai/             # ProtoPNet VGG16 / ResNet20 training
+    │   └── README.md
+    └── cait-svm/                   # CaiT + Multi-output SVM architectures (in-repo code)
+        ├── README.md
+        └── model_architecture/
+            ├── cait.py
+            └── svm.py
 ```
 
 # Dataset
@@ -80,6 +87,7 @@ Each model family has its own instructions. Start here:
   <li><a href="models/resnet-vgg/README.md">ResNet &amp; VGG training</a></li>
   <li><a href="models/spiking-neural-network/README.md">Spiking Neural Network training</a></li>
   <li><a href="models/explainable-ai/README.md">Explainable AI (ProtoPNet) training</a></li>
+  <li><a href="models/cait-svm/README.md">CaiT &amp; Multi-output SVM</a></li>
   <li><a href="docs/SETUP.md">Environment and dataset setup</a></li>
   <li><a href="docs/TRAINING.md">Training workflow and conventions</a></li>
 </ul>
