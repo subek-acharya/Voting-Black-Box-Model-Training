@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Datasets (supplied locally, see README)
+data/*
+!data/.gitkeep
+
+# Trained model checkpoints (large binaries)
+checkpoints/*
+!checkpoints/.gitkeep
+*.pth
+*.pt
+*.ckpt
+
+# Logs and runtime output
+*.log
+runs/
+logs/
+wandb/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Agent / tooling
+.agents/

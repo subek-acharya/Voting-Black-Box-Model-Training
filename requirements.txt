@@ -1,0 +1,15 @@
+# Core
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.20.0
+scipy>=1.7.0
+
+# Spiking Neural Network (SpikingJelly)
+spikingjelly>=0.0.0.0.14
+
+# Training utilities
+matplotlib>=3.5.0
+tqdm>=4.60.0
+
+# Explainable AI (ProtoPNet) is supplied as the cosine-is-almost / protopnext
+# submodule; see models/explainable-ai/README.md for setup.
