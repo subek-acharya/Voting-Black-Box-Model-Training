@@ -64,3 +64,53 @@ svm = SVMPyTorch(input_dim=1 * 40 * 50, C=1.0)
 > Multi-output SVM is driven from the attack framework
 > ([Voting-Black-Box](https://github.com/subek-acharya/Voting-Black-Box)), where both
 > architectures are registered in its `ModelFactory`.
+
+## Training
+
+A small, self-contained training subsystem lives alongside the architectures. Run it from
+this folder so the flat imports and default relative paths resolve:
+
+```bash
+cd models/cait-svm
+python train.py --model cait   # train the CaiT classifier
+python train.py --model svm    # train the linear SVM
+```
+
+`train.py` builds the model through the local `ModelFactory`, loads data with the loaders
+in `utils.py`, runs the training loop, and saves the best-validation checkpoint under
+`checkpoints/` (`checkpoints/cait_voter.pth` or `checkpoints/svm_voter.pth`), holding
+`{"state_dict", "acc", "epoch"}`.
+
+### Default hyperparameters
+
+| Flag | Default | Notes |
+| --- | --- | --- |
+| `--epochs` | `200` | number of training epochs |
+| `--batch-size` | `64` | mini-batch size |
+| `--lr` | `0.01` | SGD learning rate |
+| `--data-dir` | `./data` | where the Voter `.pth` datasets live |
+| `--checkpoint-dir` | `./checkpoints` | where checkpoints are written |
+| `--device` | auto | `cuda` if available, else `cpu` |
+
+Optimizer and schedule are fixed: SGD with `momentum=0.9`, `weight_decay=5e-4`, and
+`CosineAnnealingLR(T_max=epochs)`. The two models differ only in their loss and accuracy:
+
+- **CaiT** — `CrossEntropyLoss` on the `[B, 2]` logits, argmax accuracy against `{0,1}`
+  labels.
+- **SVM** — `model.loss()` (hinge + ½‖w‖² margin) with labels mapped `{0,1} -> {-1,+1}`,
+  and sign-match accuracy (`sign(score) == label`).
+
+### Data
+
+Training reads two torch `.pth` dicts with keys `data` (`[N, 1, 40, 50]` float) and
+`binary_labels` (long `{0,1}`):
+
+- `kaleel_final_dataset_train_Combined_Grayscale.pth` (train)
+- `kaleel_final_dataset_val_OnlyBubbles_Grayscale.pth` (validation)
+
+These Voter datasets are not downloaded by the scripts. Place them under the data dir
+(default `./data`, available from Zenodo) before training can run.
+
+> Actual training is intended to run on the Unity cluster, where `torch`, `einops`, a CUDA
+> GPU, and the Zenodo datasets are available. The code in this folder is verified locally by
+> static checks (parsing and manual signature/shape review) only.
