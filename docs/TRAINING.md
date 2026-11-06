@@ -22,6 +22,7 @@ hub that documents and coordinates them.
 
 | Family | Folder | Source Repo |
 | --- | --- | --- |
+| ResNet & VGG (CNN) | `models/resnet-vgg/` | [pytorch-train-eval-adversarial-robustness-cifar10](https://github.com/subek-acharya/pytorch-train-eval-adversarial-robustness-cifar10) |
 | Spiking Neural Network | `models/spiking-neural-network/` | [Spiking-Neural-Network](https://github.com/subek-acharya/Spiking-Neural-Network) |
 | Explainable AI (ProtoPNet) | `models/explainable-ai/` | [Explainable-AI](https://github.com/subek-acharya/Explainable-AI) |
 

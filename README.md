@@ -33,6 +33,8 @@ dedicated training folder under `models/`.
 
 | Model | Family | Training Folder | Source Repo |
 | --- | --- | --- | --- |
+| ResNet-18 | CNN | `models/resnet-vgg/` | [pytorch-train-eval-adversarial-robustness-cifar10](https://github.com/subek-acharya/pytorch-train-eval-adversarial-robustness-cifar10) |
+| VGG-16 | CNN | `models/resnet-vgg/` | [pytorch-train-eval-adversarial-robustness-cifar10](https://github.com/subek-acharya/pytorch-train-eval-adversarial-robustness-cifar10) |
 | Spiking VGG16 | Spiking Neural Network | `models/spiking-neural-network/` | [Spiking-Neural-Network](https://github.com/subek-acharya/Spiking-Neural-Network) |
 | Spiking ResNet20 | Spiking Neural Network | `models/spiking-neural-network/` | [Spiking-Neural-Network](https://github.com/subek-acharya/Spiking-Neural-Network) |
 | ProtoPNet-VGG16 | Explainable AI | `models/explainable-ai/` | [Explainable-AI](https://github.com/subek-acharya/Explainable-AI) |
@@ -54,6 +56,8 @@ Voting-Black-Box-Model-Training/
 │   ├── SETUP.md                    # environment and dataset setup
 │   └── TRAINING.md                 # training workflow and conventions
 └── models/
+    ├── resnet-vgg/                 # ResNet-18 / VGG-16 CNN training (CIFAR-10)
+    │   └── README.md
     ├── spiking-neural-network/     # Spiking VGG16 / ResNet20 training (SpikingJelly)
     │   └── README.md
     └── explainable-ai/             # ProtoPNet VGG16 / ResNet20 training
@@ -73,6 +77,7 @@ uses the standard CIFAR-10 dataset, which is downloaded automatically.
 Each model family has its own instructions. Start here:
 
 <ul>
+  <li><a href="models/resnet-vgg/README.md">ResNet &amp; VGG training</a></li>
   <li><a href="models/spiking-neural-network/README.md">Spiking Neural Network training</a></li>
   <li><a href="models/explainable-ai/README.md">Explainable AI (ProtoPNet) training</a></li>
   <li><a href="docs/SETUP.md">Environment and dataset setup</a></li>
